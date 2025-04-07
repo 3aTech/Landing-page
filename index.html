@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Empresa de Tecnología - Soluciones Integrales</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide-static@latest/font/Lucide.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'], // Fuente Inter
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Estilo adicional para iconos */
+        .lucide {
+            display: inline-block;
+            vertical-align: middle;
+            width: 1.2em;
+            height: 1.2em;
+        }
+        /* Alineación de iconos en botones/links */
+         button .lucide, a .lucide {
+            margin-right: 0.5em; /* Espacio a la derecha del icono */
+         }
+         /* Asegura que el icono dentro del botón centrado no tenga margen extra que lo desalinee */
+         button.justify-center .lucide {
+             margin-right: 0.25em; /* Reduce margen si el icono está antes del texto centrado */
+         }
+         /* Estilo para logos de clientes */
+         .client-logo img {
+            max-height: 40px; /* Ajusta la altura máxima de los logos */
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+         }
+         .client-logo img:hover {
+             filter: grayscale(0%);
+             opacity: 1;
+         }
+         /* Estilos para tarjetas de paquetes */
+         .package-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%; /* Asegura que las tarjetas tengan la misma altura */
+         }
+         .package-card .price-section {
+             margin-top: auto; /* Empuja la sección de precio al fondo */
+             padding-top: 1rem; /* Espacio antes del precio */
+         }
+
+    </style>
+</head>
+<body class="bg-gray-50 font-sans text-gray-800">
+
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div>
+                <a href="#" class="text-xl font-bold text-blue-600">TuLogoAquí</a>
+            </div>
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="#inicio" class="text-gray-600 hover:text-blue-600 transition duration-300 py-2">Inicio</a>
+                <div class="relative group">
+                     <button class="text-gray-600 hover:text-blue-600 transition duration-300 focus:outline-none py-2 inline-flex items-center">
+                        <span>Servicios</span>
+                        <i class="lucide lucide-chevron-down text-xs ml-1"></i>
+                    </button>
+                    <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 opacity-0 group-hover:opacity-100 transition duration-300 invisible group-hover:visible z-10">
+                        <a href="#servicios-software" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Desarrollo Software</a>
+                        <a href="#servicios-equipos" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Equipos Cómputo</a>
+                        <a href="#servicios-capacitacion" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Capacitación</a>
+                    </div>
+                </div>
+                 <a href="#por-que-web" class="text-gray-600 hover:text-blue-600 transition duration-300 py-2">Beneficios</a>
+                 <a href="#paquetes" class="text-gray-600 hover:text-blue-600 transition duration-300 py-2">Paquetes</a>
+                <a href="#nosotros" class="text-gray-600 hover:text-blue-600 transition duration-300 py-2">Nosotros</a>
+                <a href="#contacto" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300 inline-flex items-center">
+                    Contacto
+                </a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-600 focus:outline-none">
+                    <i class="lucide lucide-menu text-2xl"></i>
+                </button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-2">
+             <a href="#inicio" class="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600">Inicio</a>
+            <a href="#servicios-software" class="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600">Desarrollo Software</a>
+            <a href="#servicios-equipos" class="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600">Equipos Cómputo</a>
+            <a href="#servicios-capacitacion" class="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600">Capacitación</a>
+             <a href="#por-que-web" class="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600">Beneficios</a>
+             <a href="#paquetes" class="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600">Paquetes</a>
+            <a href="#nosotros" class="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600">Nosotros</a>
+            <a href="#contacto" class="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600">Contacto</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="inicio" class="bg-white pt-20 pb-10 md:pt-32 md:pb-20">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="text-center md:text-left">
+                        <h1 class="text-4xl md:text-6xl font-bold text-gray-800 mb-4 leading-tight">
+                            Impulsamos tu <span class="text-blue-600">Éxito</span> con Soluciones Tecnológicas
+                        </h1>
+                        <p class="text-lg md:text-xl text-gray-600 mb-8">
+                            Creamos software innovador (web, apps, sistemas), proveemos el hardware ideal y capacitamos a tu equipo para llevar tu negocio al siguiente nivel.
+                        </p>
+                        <div class="space-y-4 md:space-y-0 md:space-x-4">
+                            <a href="#servicios" class="inline-flex items-center justify-center bg-blue-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-blue-700 transition duration-300 text-lg">
+                                <i class="lucide lucide-layers"></i> Descubre Soluciones
+                            </a>
+                            <a href="#contacto" class="inline-flex items-center justify-center bg-transparent border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-md font-semibold hover:bg-blue-600 hover:text-white transition duration-300 text-lg">
+                                <i class="lucide lucide-message-circle"></i> Habla con un Experto
+                            </a>
+                        </div>
+                    </div>
+                    <div class="relative text-center">
+                        <img src="img/b01.png" alt="[Imagen de persona usando laptop o tecnología]" class="rounded-lg shadow-xl w-full max-w-md mx-auto md:max-w-full">
+                        <div class="absolute bottom-4 right-4 md:bottom-8 md:right-8 bg-white p-4 rounded-lg shadow-lg max-w-[200px] text-left text-sm hidden md:block">
+                             <div class="text-yellow-500 mb-1">★★★★<span class="text-gray-300">★</span></div>
+                             <p class="text-gray-600 italic">"Excelentes si quieres un trabajo profesional."</p>
+                             <p class="font-semibold text-blue-600 mt-1">- Cliente Satisfecho</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="clientes" class="py-10 bg-gray-100">
+             <div class="container mx-auto px-6">
+                 <h3 class="text-center text-gray-500 text-sm font-semibold uppercase tracking-wider mb-6">Marcas que confían en nosotros</h3>
+                 <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12">
+                     <div class="client-logo">
+                         <img src="https://placehold.co/150x40/cccccc/ffffff?text=Cliente+1" alt="[Logo Cliente 1]">
+                     </div>
+                      <div class="client-logo">
+                         <img src="https://placehold.co/150x40/cccccc/ffffff?text=Cliente+2" alt="[Logo Cliente 2]">
+                     </div>
+                      <div class="client-logo">
+                         <img src="https://placehold.co/150x40/cccccc/ffffff?text=Cliente+3" alt="[Logo Cliente 3]">
+                     </div>
+                      <div class="client-logo">
+                         <img src="https://placehold.co/150x40/cccccc/ffffff?text=Cliente+4" alt="[Logo Cliente 4]">
+                     </div>
+                     <div class="client-logo">
+                         <img src="https://placehold.co/150x40/cccccc/ffffff?text=Cliente+5" alt="[Logo Cliente 5]">
+                     </div>
+                 </div>
+             </div>
+        </section>
+
+        <section id="servicios" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Nuestras Soluciones Tecnológicas</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">Ofrecemos un abanico de servicios diseñados para cubrir tus necesidades tecnológicas, desde software personalizado hasta equipamiento y formación.</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div id="servicios-software" class="bg-gray-50 rounded-lg shadow-lg hover:shadow-xl transition duration-300 overflow-hidden">
+                        <img src="https://placehold.co/600x400/1e40af/ffffff?text=Desarrollo+Software" alt="[Imagen de Desarrollo de Software]" class="w-full h-48 object-cover">
+                        <div class="p-6 text-center md:text-left">
+                            <h3 class="text-xl font-semibold mb-3">Desarrollo de Software Innovador</h3>
+                            <p class="text-gray-600 mb-4">Transformamos tus ideas en realidad digital: webs atractivas, apps móviles intuitivas, sistemas eficientes, landing pages que convierten y blogs dinámicos.</p>
+                            <ul class="text-sm text-gray-500 list-disc list-inside mb-4 space-y-1">
+                                <li>Desarrollo Web y Landing Pages</li>
+                                <li>Aplicaciones Móviles (iOS/Android)</li>
+                                <li>Sistemas de Gestión a Medida</li>
+                                <li>Blogs Corporativos</li>
+                            </ul>
+                            <a href="#contacto" class="inline-flex items-center text-blue-600 font-semibold hover:underline">Solicitar Demo <i class="lucide lucide-arrow-right text-sm ml-1"></i></a>
+                        </div>
+                    </div>
+                    <div id="servicios-equipos" class="bg-gray-50 rounded-lg shadow-lg hover:shadow-xl transition duration-300 overflow-hidden">
+                         <img src="https://placehold.co/600x400/3b82f6/ffffff?text=Equipos+Informáticos" alt="[Imagen de Equipos Informáticos]" class="w-full h-48 object-cover">
+                         <div class="p-6 text-center md:text-left">
+                            <h3 class="text-xl font-semibold mb-3">Equipamiento Tecnológico</h3>
+                            <p class="text-gray-600 mb-4">Te asesoramos para elegir los equipos (PCs, laptops, servidores) que mejor se adaptan a tus necesidades y presupuesto. Calidad, rendimiento y soporte garantizados.</p>
+                             <ul class="text-sm text-gray-500 list-disc list-inside mb-4 space-y-1">
+                                <li>Asesoría Experta y Personalizada</li>
+                                <li>Venta de Marcas Líderes</li>
+                                <li>Precios Competitivos</li>
+                                <li>Configuración e Instalación</li>
+                            </ul>
+                            <a href="#contacto" class="inline-flex items-center text-blue-600 font-semibold hover:underline">Pedir Cotización <i class="lucide lucide-arrow-right text-sm ml-1"></i></a>
+                        </div>
+                    </div>
+                    <div id="servicios-capacitacion" class="bg-gray-50 rounded-lg shadow-lg hover:shadow-xl transition duration-300 overflow-hidden">
+                         <img src="https://placehold.co/600x400/60a5fa/ffffff?text=Capacitación+Tech" alt="[Imagen de Capacitación Tecnológica]" class="w-full h-48 object-cover">
+                         <div class="p-6 text-center md:text-left">
+                            <h3 class="text-xl font-semibold mb-3">Capacitación Tecnológica</h3>
+                            <p class="text-gray-600 mb-4">Invierte en tu equipo. Ofrecemos programas y talleres prácticos en las últimas herramientas y metodologías para impulsar la productividad y la innovación.</p>
+                             <ul class="text-sm text-gray-500 list-disc list-inside mb-4 space-y-1">
+                                <li>Ofimática y Productividad</li>
+                                <li>Herramientas de Desarrollo</li>
+                                <li>Ciberseguridad para Usuarios</li>
+                                <li>Gestión de Proyectos Tech</li>
+                            </ul>
+                            <a href="#contacto" class="inline-flex items-center text-blue-600 font-semibold hover:underline">Consultar Programas <i class="lucide lucide-arrow-right text-sm ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="por-que-web" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                 <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+                        ¿Por qué tu negocio ocupa <span class="text-blue-600">una pagina web?</span>
+                    </h2>
+                 </div>
+                 <div class="grid md:grid-cols-3 gap-12 items-center">
+                     <div class="space-y-10 md:text-right">
+                         <div>
+                             <h4 class="text-2xl font-bold text-blue-600 mb-2">01 <span class="text-lg font-semibold text-gray-700">Razón:</span></h4>
+                             <p class="text-gray-600">Tu negocio siempre visible y accesible para clientes en cualquier momento, sin restricciones de horario ni ubicación.</p>
+                         </div>
+                          <div>
+                             <h4 class="text-2xl font-bold text-blue-600 mb-2">02 <span class="text-lg font-semibold text-gray-700">Razón:</span></h4>
+                             <p class="text-gray-600">Aumenta la confianza y credibilidad de tu negocio con una página web profesional que atraiga y convierta más clientes.</p>
+                         </div>
+                     </div>
+                     <div class="text-center order-first md:order-none">
+                         <img src="https://placehold.co/500x400/e0f2fe/3b82f6?text=Beneficios+Web" alt="[Imagen de personas usando una página web]" class="rounded-lg shadow-xl mx-auto">
+                     </div>
+                     <div class="space-y-10 md:text-left">
+                         <div>
+                             <h4 class="text-2xl font-bold text-blue-600 mb-2">03 <span class="text-lg font-semibold text-gray-700">Razón:</span></h4>
+                             <p class="text-gray-600">Expande tu alcance y mejora tus ventas con una presencia digital estratégica que impulse el crecimiento de tu negocio.</p>
+                         </div>
+                          <div>
+                             <h4 class="text-2xl font-bold text-blue-600 mb-2">04 <span class="text-lg font-semibold text-gray-700">Razón:</span></h4>
+                             <p class="text-gray-600">Una página web trabaja para ti las 24 horas del día, permitiéndote captar clientes y generar ingresos incluso cuando no estás disponible.</p>
+                         </div>
+                     </div>
+                 </div>
+            </div>
+        </section>
+
+        <section id="paquetes" class="py-16 md:py-24 bg-gray-50">
+            <div class="container mx-auto px-6">
+                 <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Potencia tu negocio</h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">Impulsa tu negocio con nuestras soluciones web a medida. Elige entre tres paquetes diseñados para hacer crecer tu presencia digital con las herramientas clave que necesitas.</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="package-card bg-blue-100 p-8 rounded-lg shadow-lg border border-blue-200 text-center">
+                        <h3 class="text-2xl font-semibold text-blue-800 mb-3">Landing page</h3>
+                        <p class="text-blue-700 mb-6">Página profesional y optimizada para captar clientes y convertir visitas en oportunidades.</p>
+                        <a href="#contacto" class="inline-block bg-transparent border-2 border-blue-600 text-blue-600 px-6 py-2 rounded-md font-semibold hover:bg-blue-600 hover:text-white transition duration-300 mb-6">
+                            Contacto
+                        </a>
+                        <div class="price-section flex items-center justify-center space-x-2 border-t border-blue-200 pt-4">
+                             <i class="lucide lucide-gift text-blue-600 text-2xl"></i>
+                             <div>
+                                 <span class="text-3xl font-bold text-blue-800">200$</span><span class="text-sm text-blue-600">/USD</span>
+                                 <span class="text-xl font-bold text-blue-800 line-through ml-2">300$</span><span class="text-sm text-blue-600">/USD</span>
+                             </div>
+                        </div>
+                    </div>
+                    <div class="package-card bg-white p-8 rounded-lg shadow-lg text-center">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-3">Web E-Comerce</h3>
+                        <p class="text-gray-600 mb-6">Tienda online completa y eficiente para vender productos o servicios.</p>
+                         <a href="#contacto" class="inline-block bg-transparent border-2 border-blue-600 text-blue-600 px-6 py-2 rounded-md font-semibold hover:bg-blue-600 hover:text-white transition duration-300 mb-6">
+                            Contacto
+                        </a>
+                        <div class="price-section flex items-center justify-center space-x-2 border-t border-gray-200 pt-4">
+                             <i class="lucide lucide-shopping-cart text-blue-600 text-2xl"></i>
+                             <div>
+                                 <span class="text-3xl font-bold text-gray-800">630$</span><span class="text-sm text-gray-600">/USD</span>
+                             </div>
+                        </div>
+                    </div>
+                    <div class="package-card bg-white p-8 rounded-lg shadow-lg text-center">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-3">Blog</h3>
+                        <p class="text-gray-600 mb-6">Plataforma optimizada para crear, gestionar y compartir contenido de valor.</p>
+                         <a href="#contacto" class="inline-block bg-transparent border-2 border-blue-600 text-blue-600 px-6 py-2 rounded-md font-semibold hover:bg-blue-600 hover:text-white transition duration-300 mb-6">
+                            Contacto
+                        </a>
+                        <div class="price-section flex items-center justify-center space-x-2 border-t border-gray-200 pt-4">
+                             <i class="lucide lucide-tag text-blue-600 text-2xl"></i>
+                             <div>
+                                 <span class="text-3xl font-bold text-gray-800">480$</span><span class="text-sm text-gray-600">/USD</span>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="nosotros" class="py-16 md:py-24 bg-white">
+             <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Tu Aliado Tecnológico de Confianza</h2>
+                        <p class="text-lg text-gray-600 mb-4">
+                            Somos un equipo apasionado por la tecnología y comprometido con el éxito de nuestros clientes. Nuestra misión es facilitar la adopción tecnológica y la innovación en las empresas de Venezuela y la región.
+                        </p>
+                        <p class="text-gray-600 mb-4">
+                            Con años de experiencia combinada, unimos conocimiento técnico profundo con un enfoque centrado en tus necesidades. Entendemos los desafíos locales y trabajamos contigo para crear soluciones que generan resultados tangibles y duraderos.
+                        </p>
+                        <a href="#contacto" class="inline-flex items-center justify-center bg-blue-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-blue-700 transition duration-300">
+                            <i class="lucide lucide-users"></i> Conoce más sobre nosotros
+                        </a>
+                    </div>
+                    <div>
+                        <img src="https://placehold.co/600x400/a3bffa/ffffff?text=Nuestro+Equipo" alt="[Imagen del equipo de la empresa]" class="rounded-lg shadow-xl w-full">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="porque-elegirnos" class="py-16 md:py-24 bg-gray-100">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Ventajas de Trabajar con Nosotros</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">Descubre por qué somos la mejor opción para tus necesidades tecnológicas.</p>
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                     <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0">
+                            <i class="lucide lucide-medal text-3xl text-blue-600 bg-blue-200 p-2 rounded-full"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold mb-1">Experiencia Comprobada</h4>
+                            <p class="text-gray-600">Soluciones robustas basadas en años de trabajo y proyectos exitosos en el sector.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0">
+                             <i class="lucide lucide-puzzle text-3xl text-blue-600 bg-blue-200 p-2 rounded-full"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold mb-1">Soluciones a Medida</h4>
+                            <p class="text-gray-600">No usamos paquetes genéricos; creamos soluciones específicas para tus necesidades únicas.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0">
+                             <i class="lucide lucide-lightbulb text-3xl text-blue-600 bg-blue-200 p-2 rounded-full"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold mb-1">Equipo Experto y Actualizado</h4>
+                            <p class="text-gray-600">Profesionales en constante formación sobre las últimas tendencias y tecnologías.</p>
+                        </div>
+                    </div>
+                     <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0">
+                             <i class="lucide lucide-life-buoy text-3xl text-blue-600 bg-blue-200 p-2 rounded-full"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold mb-1">Soporte Integral</h4>
+                            <p class="text-gray-600">Te acompañamos antes, durante y después de la implementación de cada proyecto.</p>
+                        </div>
+                    </div>
+                     <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0">
+                             <i class="lucide lucide-target text-3xl text-blue-600 bg-blue-200 p-2 rounded-full"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold mb-1">Enfoque en Resultados</h4>
+                            <p class="text-gray-600">Nos centramos en cómo la tecnología puede impactar positivamente tu negocio y ROI.</p>
+                        </div>
+                    </div>
+                     <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0">
+                            <i class="lucide lucide-scale text-3xl text-blue-600 bg-blue-200 p-2 rounded-full"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold mb-1">Relación Calidad-Precio</h4>
+                            <p class="text-gray-600">Ofrecemos soluciones de alto valor añadido a precios competitivos y justos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonios" class="py-16 md:py-24 bg-white">
+             <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Lo que Dicen Nuestros Clientes</h2>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8">
+                     <div class="bg-gray-50 p-6 rounded-lg shadow-lg">
+                        <p class="text-gray-600 italic mb-4">"[Placeholder: Cita inspiradora sobre cómo tu empresa les ayudó a resolver un problema o alcanzar un objetivo. Debe ser específica si es posible.]"</p>
+                        <div class="flex items-center">
+                             <img src="https://placehold.co/50x50/cccccc/ffffff?text=👤" alt="[Foto del cliente 1]" class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <p class="font-semibold">Nombre Apellido Cliente</p>
+                                <p class="text-sm text-gray-500">Cargo, Empresa Cliente</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-lg">
+                        <p class="text-gray-600 italic mb-4">"[Placeholder: Otra cita destacando un beneficio diferente, como el soporte, la calidad del producto o la rapidez del servicio.]"</p>
+                        <div class="flex items-center">
+                            <img src="https://placehold.co/50x50/cccccc/ffffff?text=👤" alt="[Foto del cliente 2]" class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <p class="font-semibold">Otro Nombre Cliente</p>
+                                <p class="text-sm text-gray-500">Cargo, Otra Empresa</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" class="py-16 md:py-24 bg-gradient-to-r from-blue-50 to-indigo-50">
+            <div class="container mx-auto px-6">
+                 <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Hablemos de tu Próximo Proyecto</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">¿Listo para llevar tu empresa al siguiente nivel? Contáctanos para una consulta gratuita.</p>
+                </div>
+                <div class="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-xl">
+                    <form action="#" method="POST">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label for="nombre" class="block text-sm font-medium text-gray-700 mb-1">Nombre Completo</label>
+                                <input type="text" name="nombre" id="nombre" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Correo Electrónico</label>
+                                <input type="email" name="email" id="email" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                        </div>
+                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                             <div>
+                                <label for="telefono" class="block text-sm font-medium text-gray-700 mb-1">Teléfono (Opcional)</label>
+                                <input type="tel" name="telefono" id="telefono" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                             <div>
+                                <label for="asunto" class="block text-sm font-medium text-gray-700 mb-1">Servicio de Interés</label>
+                                <select name="asunto" id="asunto" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 bg-white">
+                                    <option value="">Selecciona uno...</option>
+                                    <option value="Desarrollo Software">Desarrollo de Software</option>
+                                    <option value="Equipos Computo">Equipos de Cómputo</option>
+                                    <option value="Capacitacion">Capacitación Tecnológica</option>
+                                    <option value="Paquete Landing">Paquete Landing Page</option>
+                                    <option value="Paquete Ecommerce">Paquete E-commerce</option>
+                                    <option value="Paquete Blog">Paquete Blog</option>
+                                    <option value="Consulta General">Consulta General</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label for="mensaje" class="block text-sm font-medium text-gray-700 mb-1">Mensaje</label>
+                            <textarea name="mensaje" id="mensaje" rows="4" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="inline-flex items-center justify-center bg-blue-600 text-white px-8 py-3 rounded-md font-semibold hover:bg-blue-700 transition duration-300 text-lg">
+                                <i class="lucide lucide-send"></i> Enviar Consulta
+                            </button>
+                        </div>
+                    </form>
+                    <div class="mt-12 text-center text-gray-600">
+                        <p class="mb-2">O contáctanos directamente:</p>
+                        <p><i class="lucide lucide-phone text-blue-600 mr-2"></i> [Tu Número de Teléfono]</p>
+                        <p><i class="lucide lucide-mail text-blue-600 mr-2"></i> [Tu Correo Electrónico]</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-blue-800 text-gray-300 py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div class="text-center md:text-left">
+                    <a href="#" class="inline-block text-2xl font-bold text-white mb-4">TuLogoAquí</a>
+                    <div class="flex justify-center md:justify-start space-x-4">
+                        <a href="#" aria-label="LinkedIn" class="text-gray-400 hover:text-white transition duration-300"><i class="lucide lucide-linkedin text-xl"></i></a>
+                        <a href="#" aria-label="Twitter" class="text-gray-400 hover:text-white transition duration-300"><i class="lucide lucide-twitter text-xl"></i></a>
+                        <a href="#" aria-label="Facebook" class="text-gray-400 hover:text-white transition duration-300"><i class="lucide lucide-facebook text-xl"></i></a>
+                        </div>
+                </div>
+
+                <div class="text-center md:text-left">
+                    <h4 class="font-semibold uppercase text-gray-200 mb-4">Servicios</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#servicios" class="text-sm text-gray-300 hover:text-white transition duration-300">Soluciones Tecnológicas</a></li>
+                        <li><a href="#paquetes" class="text-sm text-gray-300 hover:text-white transition duration-300">Paquetes Web</a></li>
+                        <li><a href="#servicios-equipos" class="text-sm text-gray-300 hover:text-white transition duration-300">Equipos de Cómputo</a></li>
+                        <li><a href="#servicios-capacitacion" class="text-sm text-gray-300 hover:text-white transition duration-300">Capacitación</a></li>
+                    </ul>
+                </div>
+
+                <div class="text-center md:text-left">
+                    <h4 class="font-semibold uppercase text-gray-200 mb-4">Importante</h4>
+                     <ul class="space-y-2">
+                        <li><a href="#contacto" class="text-sm text-gray-300 hover:text-white transition duration-300">Contacto</a></li>
+                        <li><a href="#" class="text-sm text-gray-300 hover:text-white transition duration-300">Política de Privacidad</a></li>
+                        <li><a href="#" class="text-sm text-gray-300 hover:text-white transition duration-300">Términos y Condiciones</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-blue-700 pt-6 text-center">
+                 <p class="text-sm text-gray-400">
+                    Copyright © <span id="current-year"></span> [Nombre de tu Empresa]. Todos los derechos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menú móvil toggle
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Actualizar año en footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Cerrar menú móvil al hacer clic en un enlace
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                 if(link.getAttribute('href').startsWith('#')) {
+                    mobileMenu.classList.add('hidden');
+                 }
+            });
+        });
+
+         // Cerrar menú desplegable de servicios al hacer clic en un enlace del menú
+        const dropdownLinks = document.querySelectorAll('.group-hover\\:opacity-100 a');
+        dropdownLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                 // Opcional: cerrar desplegable
+            });
+        });
+    </script>
+
+</body>
+</html>
