@@ -6,13 +6,32 @@
     <title>Tu Empresa de Tecnología - Soluciones Integrales</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide-static@latest/font/Lucide.css">
-    <script>
+        <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'], // Fuente Inter
                     },
+                    colors: {
+                        // Definición de los nuevos colores
+                        'primary': '#1CA4B0', // Turquesa/Cian
+                        'secondary': '#3BA856', // Verde
+                        'accent': '#A3D64B', // Verde Lima
+                        'dark-blue': '#1E3A8A', // Un azul oscuro para el footer, similar al original pero combinando
+                        'light-bg': '#F3F4F6', // Gris claro para fondos
+                        'white': '#ffffff',
+                        'gray-50': '#F9FAFB',
+                        'gray-100': '#F3F4F6',
+                        'gray-200': '#E5E7EB',
+                        'gray-300': '#D1D5DB',
+                        'gray-400': '#9CA3AF',
+                        'gray-500': '#6B7280',
+                        'gray-600': '#4B5563',
+                        'gray-700': '#374151',
+                        'gray-800': '#1F2937',
+                        'gray-900': '#111827',
+                    }
                 }
             }
         }
@@ -35,10 +54,10 @@
          }
          /* Estilo para logos de clientes */
          .client-logo img {
-            max-height: 40px; /* Ajusta la altura máxima de los logos */
-            filter: grayscale(100%);
-            opacity: 0.7;
-            transition: all 0.3s ease;
+             max-height: 40px; /* Ajusta la altura máxima de los logos */
+             filter: grayscale(100%);
+             opacity: 0.7;
+             transition: all 0.3s ease;
          }
          .client-logo img:hover {
              filter: grayscale(0%);
@@ -46,13 +65,49 @@
          }
          /* Estilos para tarjetas de paquetes */
          .package-card {
-            display: flex;
-            flex-direction: column;
-            height: 100%; /* Asegura que las tarjetas tengan la misma altura */
+             display: flex;
+             flex-direction: column;
+             height: 100%; /* Asegura que las tarjetas tengan la misma altura */
          }
          .package-card .price-section {
              margin-top: auto; /* Empuja la sección de precio al fondo */
              padding-top: 1rem; /* Espacio antes del precio */
+         }
+
+         /* Gradiente para la sección de inicio, similar a la imagen */
+         .hero-gradient {
+             background: linear-gradient(to bottom right, #1CA4B0, #3BA856);
+         }
+
+         /* Gradiente para la sección de contacto */
+         .contact-gradient {
+              background: linear-gradient(to right, #A3D64B, #3BA856);
+         }
+
+         /* Estilo para el logo en la barra de navegación */
+         .navbar-logo {
+             height: 40px; /* Ajusta la altura del logo según sea necesario */
+             width: auto;
+         }
+
+         /* Estilo para el logo en el footer */
+         .footer-logo {
+             height: 50px; /* Ajusta la altura del logo según sea necesario */
+             width: auto;
+         }
+
+         /* Estilo para la imagen de la sección Hero para que ocupe la altura */
+         .hero-image {
+             object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
+             height: 100%; /* Ocupa toda la altura disponible en su contenedor */
+             width: 100%; /* Ocupa todo el ancho disponible */
+         }
+
+         /* Estilo para la sección "Por qué elegirnos" con fondo y padding */
+         .why-choose-us-section {
+             background-color: #F3F4F6; /* light-bg */
+             padding-top: 4rem; /* py-16 */
+             padding-bottom: 4rem; /* py-16 */
          }
 
     </style>
